@@ -1,17 +1,30 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
+import { Container, Text, VStack, Input, Button, Wrap, WrapItem, Box } from "@chakra-ui/react";
 
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+const options = [
+  "Todo",
+  "Personal website",
+  "Notes",
+  "Band website",
+  "Chat",
+  "Dashboard",
+  "Blog",
+  "SaaS"
+];
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
+    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center" bg="black" color="white">
+      <VStack spacing={6} width="100%">
+        <Text fontSize="4xl" fontWeight="bold">What do you want to build?</Text>
+        <Input placeholder="e.g., A Music player" size="lg" bg="gray.800" border="none" _placeholder={{ color: 'gray.500' }} />
+        <Wrap spacing={4} justify="center">
+          {options.map(option => (
+            <WrapItem key={option}>
+              <Button size="lg" variant="outline" colorScheme="whiteAlpha">{option}</Button>
+            </WrapItem>
+          ))}
+        </Wrap>
+        <Button size="lg" colorScheme="whiteAlpha" width="100%">Create</Button>
       </VStack>
     </Container>
   );
